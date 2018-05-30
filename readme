@@ -1,0 +1,54 @@
+# Procedural Generation
+
+This project is an image generator that takes heavy advantage of random number generation. It implements several algorithms that I created in order to draw the scene correctly. The program is non interactable, it simply draws a randomly generated scene when ran.
+
+### Difficulties or opportunities you encountered along the way.
+
+The toughest part was creating the sand. Most of the time it ends up looking wrong and needs to be tweaked.
+
+### Most interesting piece of your code and explanation for what it does.
+
+```void drawCloud(int x, int y, int curSize, int totSize){
+  if(curSize < totSize){
+    rect(x, y, 8, 5);
+    int posSeed = (int) (Math.random() * 30);
+    if(posSeed < 3){
+      x--;
+      y--;
+    } else if(posSeed < 4){
+      y--;
+    } else if(posSeed < 7){
+      x++;
+      y--;
+    } else if(posSeed < 15){
+      x--;
+    } else if(posSeed < 23){
+      x++;
+    } else if(posSeed < 26){
+      x--;
+      y++;
+    } else if(posSeed < 27){
+      y++;
+    } else {
+      x++;
+      y++;
+    }
+    curSize++;
+    drawCloud(x, y, curSize, totSize);
+  }
+  
+}
+```
+TThis method renders a randomly generated cloud. The code is relatively complex and involves a lot of randomness yet does not end up ugly or disorderly.
+## Built With
+
+* [Processing](https://processing.org/) - The IDE used
+
+## Authors
+
+* **Grant Cridlebaugh** 
+
+
+## Acknowledgments
+
+*Me
